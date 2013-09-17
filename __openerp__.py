@@ -29,7 +29,7 @@
     'images': [],
     'depends': ['sale','sale_margin'],
     'demo': [],
-    'data': [],
+    'data': ['sale_margin_security.xml','sale_margin_view.xml'],
     # 'data': [],
     'test': [],
     'installable': True,

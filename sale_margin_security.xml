@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="0">
+
+    <record id="base.group_ceo" model="res.groups">
+        <field name="name">CEO</field>
+        <field name="category_id" ref="base.module_category_sales_management"/>
+        <field name="comment">CEO user. Can see some data other users can't</field>
+    </record>
+
+</data>
+</openerp>
