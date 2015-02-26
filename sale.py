@@ -19,5 +19,29 @@
 #
 ##############################################################################
 
-import sale
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+from openerp.osv import fields, osv
+
+class sale_order(osv.osv):
+	_name = 'sale.order'
+	_inherit = 'sale.order'
+
+	def _fnct_margin_percent(self, cr, uid, ids, field_name, args, context=None):
+
+	        if context is None:
+        	    context = {}
+        	res = {}
+        	for order in self.browse(cr, uid, ids, context=context):
+			order_cost = order.amount_untaxed - order.margin
+			if order.amount_untaxed > 0:
+				percent = (1-(order_cost/order.amount_untaxed))*100
+                        	res[order.id] = percent
+                	else:
+                        	res[order.id] = 0
+	        return res
+
+	_columns = {
+        	'margin_percent': fields.function(_fnct_margin_percent, string='% Margen'),
+		}
+
+
+sale_order()

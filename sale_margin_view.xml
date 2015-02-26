@@ -9,7 +9,8 @@
         <field name="arch" type="xml">
             <xpath expr="//group[@name='sale_total']" position="after">
                 <group name="sale_margin_grp">
-                    <field name="margin" widget='monetary' options="{'currency_field': 'currency_id'}" groups="base.group_ceo"/>
+                    <!-- field name="margin" widget='monetary' options="{'currency_field': 'currency_id'}" groups="base.group_ceo"/ -->
+                    <field name="margin_percent" groups="base.group_ceo"/>
                 </group>
             </xpath>
         </field>
